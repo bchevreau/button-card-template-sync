@@ -71,8 +71,7 @@ future Home Assistant dashboard keys.
 
 ### HACS
 
-This repository is still under review from HACS. Once approved, add it
-as a custom repository:
+You can add this integration as a custom repository from HACS:
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bchevreau&repository=https%3A%2F%2Fgithub.com%2Fbchevreau%2Fbutton-card-template-sync&category=integration)
 
@@ -116,7 +115,7 @@ This integration does not install button-card itself.
 1. Create or locate an existing button-card templates folder inside your Home Assistant config directory, for
    example `button_card_templates`.
 1. Put one or more `.yaml` or `.yml` template files directly inside that folder.
-1. [![Open your Home Assistant instance and show an integration.](https://my.home-assistant.io/badges/integration.svg)](https://my.home-assistant.io/redirect/integration/?domain=button_card_template_sync) or go to Settings > Devices & services > Add integration.
+1. Go to Settings > Devices & services > Add integration or click this button: [![Open your Home Assistant instance and show an integration.](https://my.home-assistant.io/badges/integration.svg)](https://my.home-assistant.io/redirect/integration/?domain=button_card_template_sync)
 1. Search for Button Card Template Sync or click 
 1. Pick the template folder and target storage-mode dashboard.
 1. Keep Dry run enabled for the first sync.
