@@ -1,0 +1,12 @@
+{
+  "domain": "button_card_template_sync",
+  "name": "Button Card Template Sync",
+  "codeowners": [
+    "@bchevreau"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/bchevreau/button-card-template-sync",
+  "issue_tracker": "https://github.com/bchevreau/button-card-template-sync/issues",
+  "iot_class": "local_push",
+  "version": "0.1.0"
+}

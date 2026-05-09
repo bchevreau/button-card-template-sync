@@ -1,0 +1,30 @@
+sync_templates:
+  name: Sync templates
+  description: Merge button-card template YAML files into configured storage-mode dashboards.
+  fields:
+    entry_id:
+      name: Entry ID
+      description: Optional config entry ID. If omitted, all configured entries are processed.
+      example: "01HABCDEF..."
+      selector:
+        text:
+    dry_run:
+      name: Dry run
+      description: Override the entry dry-run setting for this service call.
+      selector:
+        boolean:
+    backup:
+      name: Backup before write
+      description: Override the entry backup setting for this service call.
+      selector:
+        boolean:
+clear_backups:
+  name: Clear backups
+  description: Clear stored dashboard backups for one configured sync entry, or all entries if omitted.
+  fields:
+    entry_id:
+      name: Entry ID
+      description: Optional config entry ID. If omitted, backups for all configured entries are cleared.
+      example: "01HABCDEF..."
+      selector:
+        text:

@@ -4,15 +4,28 @@ target-version = "py314"
 
 [lint]
 select = [
-    "ALL",
+    "ASYNC", # async/await correctness
+    "B", # flake8-bugbear: likely bugs and footguns
+    "BLE", # avoid blind exception handling patterns
+    "C4", # safer comprehensions
+    "E", # pycodestyle errors
+    "F", # pyflakes: undefined names, unused imports, etc.
+    "I", # import ordering
+    "PERF", # avoid avoidable slow patterns
+    "PIE", # small correctness cleanups
+    "PLC", # pylint convention checks with bug signal
+    "PLE", # pylint error checks
+    "PLW", # pylint warning checks
+    "RUF", # Ruff-specific correctness rules
+    "SIM", # simplify code without changing behavior
+    "UP", # keep code modern for HA's Python baseline
 ]
 
 ignore = [
-    "ANN401", # Dynamically typed expressions (typing.Any) are disallowed
-    "D203", # no-blank-line-before-class (incompatible with formatter)
-    "D212", # multi-line-summary-first-line (incompatible with formatter)
     "COM812", # incompatible with formatter
+    "E501", # formatter handles wrapping; keep long strings/readability exceptions
     "ISC001", # incompatible with formatter
+    "PLC0415", # local imports are sometimes needed to avoid HA integration cycles
 ]
 
 [lint.flake8-pytest-style]

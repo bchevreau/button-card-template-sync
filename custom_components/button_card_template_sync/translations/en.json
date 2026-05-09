@@ -1,0 +1,105 @@
+{
+  "title": "Button Card Template Sync",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Button Card Template Sync",
+        "description": "Create one sync entry for one template folder and one storage-mode dashboard.",
+        "data": {
+          "name": "Entry name",
+          "template_folder": "Template folder",
+          "target_dashboard": "Target dashboard",
+          "dry_run": "Dry run",
+          "backup_before_write": "Backup before write",
+          "backup_retention_count": "Backup retention",
+          "auto_sync": "Auto-sync",
+          "poll_interval_seconds": "Poll interval"
+        },
+        "data_description": {
+          "name": "Display name for this sync entry and its generated entities. Leave empty to derive a dashboard-based name.",
+          "template_folder": "Folder inside the Home Assistant config directory that contains the button-card template YAML files. Do not include a trailing slash. Version 1 reads YAML files directly in this folder, not nested subfolders.",
+          "target_dashboard": "Storage-mode dashboard that will receive the merged top-level button_card_templates block.",
+          "dry_run": "When enabled, sync only validates and builds the dashboard patch in memory. It does not write the dashboard or create a backup.",
+                    "auto_sync": "When enabled, polls the template folder for stable changes and syncs only after the change is seen across consecutive polls.",
+          "backup_before_write": "When enabled, real sync stores a backup of the previous dashboard config before writing.",
+          "backup_retention_count": "Maximum number of backups to keep for this sync entry. Old backups for this entry are removed automatically.",
+                    "poll_interval_seconds": "Auto-sync polling interval in seconds. Polling checks for stable folder changes and does not force-write every interval."
+        }
+      }
+    },
+    "error": {
+      "folder_not_found": "Template folder was not found.",
+      "folder_outside_config": "Template folder must be inside the Home Assistant config directory.",
+      "dashboard_not_found": "Target dashboard was not found.",
+      "unknown": "Unexpected error."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Button Card Template Sync options",
+        "description": "Adjust this dashboard sync entry. The generated entities can also control daily options.",
+        "data": {
+          "name": "Entry name",
+          "template_folder": "Template folder",
+          "target_dashboard": "Target dashboard",
+          "dry_run": "Dry run",
+          "backup_before_write": "Backup before write",
+          "backup_retention_count": "Backup retention",
+          "auto_sync": "Auto-sync",
+          "poll_interval_seconds": "Poll interval"
+        },
+        "data_description": {
+          "name": "Display name for this sync entry and its generated entities. Leave empty to derive a dashboard-based name.",
+          "template_folder": "Folder inside the Home Assistant config directory that contains the button-card template YAML files. Do not include a trailing slash. Version 1 reads YAML files directly in this folder, not nested subfolders.",
+          "target_dashboard": "Storage-mode dashboard that will receive the merged top-level button_card_templates block.",
+          "dry_run": "When enabled, sync only validates and builds the dashboard patch in memory. It does not write the dashboard or create a backup.",
+                    "auto_sync": "When enabled, polls the template folder for stable changes and syncs only after the change is seen across consecutive polls.",
+          "backup_before_write": "When enabled, real sync stores a backup of the previous dashboard config before writing.",
+          "backup_retention_count": "Maximum number of backups to keep for this sync entry. Old backups for this entry are removed automatically.",
+                    "poll_interval_seconds": "Auto-sync polling interval in seconds. Polling checks for stable folder changes and does not force-write every interval."
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "sync": {
+        "name": "Sync"
+      },
+      "clear_backups": {
+        "name": "Clear backups"
+      }
+    },
+    "sensor": {
+      "status": {
+        "name": "Status"
+      },
+      "template_count": {
+        "name": "Template count"
+      },
+      "last_sync": {
+        "name": "Last sync"
+      }
+    },
+    "switch": {
+      "dry_run": {
+        "name": "Dry run"
+      },
+      "auto_sync": {
+        "name": "Auto-sync"
+      },
+      "backup_before_write": {
+        "name": "Backup before write"
+      }
+    },
+    "number": {
+      "poll_interval_seconds": {
+        "name": "Poll interval"
+      },
+      "backup_retention_count": {
+        "name": "Backup retention"
+      }
+    }
+  }
+}

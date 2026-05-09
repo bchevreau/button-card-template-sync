@@ -1,18 +1,30 @@
 # artifacts
 __pycache__
+__pycache__/
+*.py[cod]
 .pytest*
 *.egg-info
 */build/*
 */dist/*
+build/
+dist/
 
 
 # misc
 .coverage
 .vscode
+.idea
 coverage.xml
 .ruff_cache
+.mypy_cache
+.DS_Store
 
 
 # Home Assistant configuration
 config/*
 !config/configuration.yaml
+.storage/
+config/.storage/
+home-assistant.log*
+home-assistant_v2.db*
+deps/
