@@ -1,7 +1,5 @@
-# Button Card Template Sync
-
 <p align="center">
-  <img src="custom_components/button_card_template_sync/brand/logo@2x.png" alt="Button Card Template Sync logo" width="420">
+  <img src="custom_components/button_card_template_sync/brand/logo@2x.png" alt="Button Card Template Sync logo" width="300">
 </p>
 
 <p align="center">
@@ -20,6 +18,8 @@ Future badge ideas, useful after the repo is public and beta releases/actions ar
 [![GitHub stars](https://img.shields.io/github/stars/bchevreau/button-card-template-sync?style=flat&label=stars)](https://github.com/bchevreau/button-card-template-sync/stargazers)
 -->
 
+# Button Card Template Sync
+
 [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bchevreau&repository=button-card-template-sync&category=integration)
 
 Keep `custom:button-card` templates in YAML, while keeping your Lovelace
@@ -29,7 +29,7 @@ Button Card Template Sync reads a folder of separate, individual button-card tem
 them deterministically, validates inheritance, and writes the result to the
 top-level `button_card_templates` key of a storage-mode / UI dashboard.
 
-It is built for people who like their dashboards in the UI, but their shared
+It is built for people who like to edit their dashboards in the UI, but prefer their shared
 button-card templates neatly organised into files where they can be reviewed, copied, backed up,
 and versioned.
 
