@@ -67,16 +67,6 @@ On every sync, it:
 That last check covers `views`, `kiosk_mode`, themes, layout settings, and
 future Home Assistant dashboard keys.
 
-## Requirements
-
-- Home Assistant 2026.3.2 or newer.
-- HACS 2.0.5 or newer, if installing through HACS.
-- A storage-mode (UI) Lovelace dashboard.
-- [`custom:button-card`](https://github.com/custom-cards/button-card) installed
-  separately if your dashboard uses button-card cards.
-
-This integration does not install button-card itself.
-
 ## Installation
 
 ### HACS
@@ -110,6 +100,16 @@ to:
 ```
 
 Then restart Home Assistant.
+
+## Requirements
+
+- Home Assistant 2026.3.2 or newer.
+- HACS 2.0.5 or newer, if installing through HACS.
+- A storage-mode (UI) Lovelace dashboard.
+- [`custom:button-card`](https://github.com/custom-cards/button-card) installed
+  separately if your dashboard uses button-card cards.
+
+This integration does not install button-card itself.
 
 ## Setup
 
