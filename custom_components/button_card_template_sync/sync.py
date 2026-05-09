@@ -25,6 +25,8 @@ from .lovelace import (
     async_load_dashboard_config,
     build_patched_dashboard_config,
     changed_top_level_keys,
+    changed_top_level_keys_except,
+    unchanged_top_level_keys_except,
 )
 from .merge import merge_template_folder
 
@@ -44,6 +46,9 @@ class SyncResult:
     changed_keys: list[str] | None = None
     before_key_order: list[str] | None = None
     after_key_order: list[str] | None = None
+    preserved_key_count: int | None = None
+    preserved_keys: list[str] | None = None
+    unexpected_changed_keys: list[str] | None = None
     views_unchanged: bool | None = None
     kiosk_mode_unchanged: bool | None = None
     backup_ref: str | None = None
@@ -106,6 +111,16 @@ async def async_sync_entry(
             existing_templates = {}
         patched_config = build_patched_dashboard_config(current_config, merge.templates)
         changed_keys = changed_top_level_keys(current_config, patched_config)
+        unexpected_changed_keys = changed_top_level_keys_except(
+            current_config,
+            patched_config,
+            "button_card_templates",
+        )
+        preserved_keys = unchanged_top_level_keys_except(
+            current_config,
+            patched_config,
+            "button_card_templates",
+        )
         views_unchanged = current_config.get("views") == patched_config.get("views")
         kiosk_mode_unchanged = current_config.get("kiosk_mode") == patched_config.get(
             "kiosk_mode"
@@ -118,12 +133,9 @@ async def async_sync_entry(
             if merge.templates[name] != existing_templates[name]
         }
 
-        unexpected_changes = [
-            key for key in changed_keys if key != "button_card_templates"
-        ]
-        if unexpected_changes:
+        if unexpected_changed_keys:
             raise TemplateSyncError(
-                f"Unexpected changed top-level keys: {unexpected_changes}"
+                f"Unexpected changed top-level keys: {unexpected_changed_keys}"
             )
 
         backup_ref = None
@@ -144,11 +156,15 @@ async def async_sync_entry(
             _dashboard_after, saved_config = await async_load_dashboard_config(
                 hass, target_dashboard
             )
-            if saved_config.get("views") != current_config.get("views"):
-                raise TemplateSyncError("Post-write verification failed: views changed")
-            if saved_config.get("kiosk_mode") != current_config.get("kiosk_mode"):
+            post_write_changed_keys = changed_top_level_keys_except(
+                current_config,
+                saved_config,
+                "button_card_templates",
+            )
+            if post_write_changed_keys:
                 raise TemplateSyncError(
-                    "Post-write verification failed: kiosk_mode changed"
+                    "Post-write verification failed: "
+                    f"unexpected top-level keys changed: {post_write_changed_keys}"
                 )
             wrote = True
 
@@ -164,6 +180,9 @@ async def async_sync_entry(
             changed_keys=changed_keys,
             before_key_order=list(current_config.keys()),
             after_key_order=list(patched_config.keys()),
+            preserved_key_count=len(preserved_keys),
+            preserved_keys=preserved_keys,
+            unexpected_changed_keys=unexpected_changed_keys,
             views_unchanged=views_unchanged,
             kiosk_mode_unchanged=kiosk_mode_unchanged,
             backup_ref=backup_ref,

@@ -68,8 +68,9 @@ room_light:
 ```
 
 On sync, the merged mapping is written to the target dashboard's top-level
-`button_card_templates` key. Existing dashboard views and `kiosk_mode` are
-verified unchanged after writes.
+`button_card_templates` key. Before and after real writes, every other
+top-level dashboard key is verified unchanged so dashboard views, `kiosk_mode`,
+themes, layout settings, and future Home Assistant keys are preserved.
 
 ## Entities
 

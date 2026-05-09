@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import copy
 from dataclasses import dataclass
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from homeassistant.core import HomeAssistant
+if TYPE_CHECKING:
+    from homeassistant.core import HomeAssistant
 
 from .errors import TemplateSyncError
 
@@ -133,4 +134,30 @@ def changed_top_level_keys(
         key
         for key in sorted(set(before_config) | set(after_config))
         if before_config.get(key, sentinel) != after_config.get(key, sentinel)
+    ]
+
+
+def unchanged_top_level_keys_except(
+    before_config: dict[str, Any],
+    after_config: dict[str, Any],
+    allowed_key: str,
+) -> list[str]:
+    """Return unchanged top-level keys, ignoring one intentionally changed key."""
+    return [
+        key
+        for key in sorted((set(before_config) | set(after_config)) - {allowed_key})
+        if before_config.get(key) == after_config.get(key)
+    ]
+
+
+def changed_top_level_keys_except(
+    before_config: dict[str, Any],
+    after_config: dict[str, Any],
+    allowed_key: str,
+) -> list[str]:
+    """Return changed top-level keys, ignoring one intentionally changed key."""
+    return [
+        key
+        for key in changed_top_level_keys(before_config, after_config)
+        if key != allowed_key
     ]
