@@ -6,7 +6,7 @@
   ],
   "config_flow": true,
   "documentation": "https://github.com/bchevreau/button-card-template-sync",
-  "issue_tracker": "https://github.com/bchevreau/button-card-template-sync/issues",
   "iot_class": "local_push",
+  "issue_tracker": "https://github.com/bchevreau/button-card-template-sync/issues",
   "version": "0.1.0"
 }

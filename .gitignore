@@ -28,3 +28,6 @@ config/.storage/
 home-assistant.log*
 home-assistant_v2.db*
 deps/
+
+# Local live Home Assistant deployment helpers
+scripts/deploy-live.ps1
