@@ -1,5 +1,25 @@
 # Button Card Template Sync
 
+<p align="center">
+  <img src="custom_components/button_card_template_sync/brand/logo@2x.png" alt="Button Card Template Sync logo" width="420">
+</p>
+
+<p align="center">
+  <a href="https://github.com/bchevreau/button-card-template-sync/releases"><img src="https://img.shields.io/github/v/release/bchevreau/button-card-template-sync?include_prereleases&label=version" alt="Latest release"></a>
+  <a href="https://github.com/bchevreau/button-card-template-sync/blob/main/LICENSE"><img src="https://img.shields.io/github/license/bchevreau/button-card-template-sync" alt="License"></a>
+  <img src="https://img.shields.io/badge/Home%20Assistant-2026.3.2%2B-18BCF2" alt="Home Assistant 2026.3.2 or newer">
+  <img src="https://img.shields.io/badge/HACS-Custom-41BDF5" alt="HACS custom repository">
+</p>
+
+<!--
+Future badge ideas, useful after the repo is public and beta releases/actions are active:
+
+[![Validate](https://github.com/bchevreau/button-card-template-sync/actions/workflows/validate.yml/badge.svg)](https://github.com/bchevreau/button-card-template-sync/actions/workflows/validate.yml)
+[![Tests](https://github.com/bchevreau/button-card-template-sync/actions/workflows/tests.yml/badge.svg)](https://github.com/bchevreau/button-card-template-sync/actions/workflows/tests.yml)
+[![GitHub downloads](https://img.shields.io/github/downloads/bchevreau/button-card-template-sync/total?label=downloads)](https://github.com/bchevreau/button-card-template-sync/releases)
+[![GitHub stars](https://img.shields.io/github/stars/bchevreau/button-card-template-sync?style=flat&label=stars)](https://github.com/bchevreau/button-card-template-sync/stargazers)
+-->
+
 [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bchevreau&repository=button-card-template-sync&category=integration)
 
 Keep `custom:button-card` templates in YAML, while keeping your Lovelace
